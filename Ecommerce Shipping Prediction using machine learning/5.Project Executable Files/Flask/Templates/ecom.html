@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Delivery Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Product Delivery Prediction</h1>
+        <form action="/y_predict" method="post">
+            <label for="Cost_of_the_Product">Cost of the Product:</label>
+            <input type="text" id="Cost_of_the_Product" name="Cost_of_the_Product" required><br>
+
+            <label for="Discount_offered">Discount Offered:</label>
+            <input type="text" id="Discount_offered" name="Discount_offered" required><br>
+
+            <label for="Prior_purchases">Prior Purchases:</label>
+            <input type="text" id="Prior_purchases" name="Prior_purchases" required><br>
+
+            <label for="Weight_in_gms">Weight (in grams):</label>
+            <input type="text" id="Weight_in_gms" name="Weight_in_gms" required><br>
+
+            <label for="Customer_rating">Customer Rating:</label>
+            <input type="text" id="Customer_rating" name="Customer_rating" required><br>
+
+            <label for="Customer_care_calls">Customer Care Calls:</label>
+            <input type="text" id="Customer_care_calls" name="Customer_care_calls" required><br>
+
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction_text %}
+            <h2>{{ prediction_text }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
